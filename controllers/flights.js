@@ -36,10 +36,20 @@ Flight.findById(req.params.id, function (err,flight){
   })
 })
 }
+function addTicket(req,res){
+  Flight.findById(req.params.id, function (err,flight){
+    flight.tickets.push()
+    flight.save(function(err){
+      if (err) return res.redirect('/flights/new')
+      res.redirect(`/flights/${flight._id}`)
+    })
+  })
+}
 
 export{
   index,
   newFlight as new,
   create,
   show,
+  addTicket,
 }
