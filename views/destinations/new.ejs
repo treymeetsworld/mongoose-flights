@@ -4,22 +4,24 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Destinations</title>
 </head>
 <body>
+  <%- include('../partials/nav') %>
   <main>
     <h1><%= title %></h1>
-      <select>
-        <% destinations.forEach(function(destination) { %>
-          <option><%= destination.airport %></option>
-        <% }) %>
-      </select>
-    </p>
     <form id="add-destination-form" action="/destinations" method="POST">
       <label for="airport">Airport:</label>
       <input type="text" name="airport">
       <button type="submit">Add Destination</button>
     </form>
+    <p>
+      <h2>Destinations</h2>
+      <% destinations.forEach(function(destination) { %>
+        <option><%= destination.airport %></option>
+      <% }) %>
+    </p>
+  </p>
   </main>
 </body>
 </html>
